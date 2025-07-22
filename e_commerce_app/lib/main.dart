@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(E_CommerceApp());
 }
