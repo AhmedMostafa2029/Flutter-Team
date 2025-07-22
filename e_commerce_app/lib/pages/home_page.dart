@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/models/category_item.dart';
 import 'package:e_commerce_app/widgets/banner_card.dart';
+import 'package:e_commerce_app/widgets/category_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -62,19 +62,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CategoryItem(Icons.checkroom, "Apparel"),
-                  CategoryItem(Icons.school, "School"),
-                  CategoryItem(Icons.sports_basketball, "Sports"),
-                  CategoryItem(Icons.electrical_services, "Electronic"),
-                  CategoryItem(Icons.shopping_bag_rounded, "Bag"),
-                  CategoryItem(Icons.grid_view, "All"),
-                ],
-              ),
-            ),
+            CategoryList(),
           ],
         ),
       ),
