@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/pages/cart_page.dart';
 import 'package:e_commerce_app/widgets/banner_card.dart';
 import 'package:e_commerce_app/widgets/category_list.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,15 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                 ),
                 SizedBox(width: 70),
-                Icon(Icons.shopping_cart_outlined, size: 28),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => CartPage()),
+                    );
+                  },
+                  child: Icon(Icons.shopping_cart_outlined, size: 28),
+                ),
                 Icon(Icons.notifications_none, size: 28),
               ],
             ),
