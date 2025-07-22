@@ -12,7 +12,9 @@ class BannerCard extends StatelessWidget {
         width: 195,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/OIP (1).webp')),
+          image: DecorationImage(
+            image: AssetImage('assets/images/banners/banner1.png'),
+          ),
           color: const Color.fromARGB(255, 253, 223, 178),
           borderRadius: BorderRadius.circular(12),
         ),
