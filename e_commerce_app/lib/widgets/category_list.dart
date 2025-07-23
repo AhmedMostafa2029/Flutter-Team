@@ -5,17 +5,29 @@ import 'package:flutter/material.dart';
 class CategoryList extends StatelessWidget {
   const CategoryList({super.key});
   final List<CategoryModel> categories = const [
-    CategoryModel(icon: Icons.checkroom, title: "Apparel"),
-    CategoryModel(icon: Icons.school, title: "School"),
-    CategoryModel(icon: Icons.sports_basketball, title: "Sports"),
-    CategoryModel(icon: Icons.electrical_services, title: "Electronic"),
-    CategoryModel(icon: Icons.shopping_bag_rounded, title: "Bag"),
-    CategoryModel(icon: Icons.grid_view, title: "All"),
+    CategoryModel(
+      imageicon: 'assets/images/categorys/img1.png',
+      title: "Apparel",
+    ),
+    CategoryModel(
+      imageicon: 'assets/images/categorys/img2.png',
+      title: "School",
+    ),
+    CategoryModel(
+      imageicon: 'assets/images/categorys/img3.png',
+      title: "Sports",
+    ),
+    CategoryModel(
+      imageicon: 'assets/images/categorys/img4.png',
+      title: "Electronic",
+    ),
+    // CategoryModel(imageicon: 'assets/images/categorys/img5.png', title: "Bag"),
+    CategoryModel(imageicon: 'assets/images/categorys/img5.png', title: "All"),
   ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90,
+      height: 65,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,

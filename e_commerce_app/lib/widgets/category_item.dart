@@ -9,18 +9,22 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.only(right: 16),
+        padding: const EdgeInsets.only(right: 8),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(12),
+              // padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: Icon(category.icon, size: 28, color: Colors.blueAccent),
+              child: Image(
+                height: 40,
+                width: 60,
+                image: AssetImage(category.imageicon),
+              ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 6),
             Text(category.title, style: TextStyle(fontSize: 12)),
           ],
         ),

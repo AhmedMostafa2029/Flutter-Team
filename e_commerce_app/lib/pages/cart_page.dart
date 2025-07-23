@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/models/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -16,9 +17,7 @@ class CartPage extends StatelessWidget {
       body: Consumer<CarModel>(
         builder: (context, carModel, child) {
           if (carModel.productCount == 0) {
-            return const Center(
-              child: Text('Your cart is empty'),
-            );
+            return const Center(child: Text('Your cart is empty'));
           }
 
           return ListView.builder(
@@ -56,7 +55,9 @@ class CartPage extends StatelessWidget {
                           children: [
                             Text(
                               product.name,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             Text(
                               'Variant: ${product.variant}',
@@ -67,7 +68,9 @@ class CartPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text('Price: \$${product.price}'),
-                                NumberOfProductWithAddOrRemoveButtoms(index: index),
+                                NumberOfProductWithAddOrRemoveButtoms(
+                                  index: index,
+                                ),
                               ],
                             ),
                           ],
@@ -112,10 +115,7 @@ class NumberOfProductWithAddOrRemoveButtoms extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 2),
-            Text(
-              quantity.toString(),
-              style: const TextStyle(fontSize: 18),
-            ),
+            Text(quantity.toString(), style: const TextStyle(fontSize: 18)),
             const SizedBox(width: 2),
             GestureDetector(
               onTap: () {
@@ -137,7 +137,9 @@ class NumberOfProductWithAddOrRemoveButtoms extends StatelessWidget {
                   context: context,
                   builder: (context) => AlertDialog(
                     title: const Text('Remove item'),
-                    content: const Text('Are you sure you want to remove this product?'),
+                    content: const Text(
+                      'Are you sure you want to remove this product?',
+                    ),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context, false),
@@ -161,7 +163,11 @@ class NumberOfProductWithAddOrRemoveButtoms extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Icon(Icons.delete_outline, size: 18, color: Colors.grey),
+                child: const Icon(
+                  Icons.delete_outline,
+                  size: 18,
+                  color: Colors.grey,
+                ),
               ),
             ),
           ],

@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/pages/cart_page.dart';
 import 'package:e_commerce_app/widgets/banner_card.dart';
 import 'package:e_commerce_app/widgets/category_list.dart';
+import 'package:e_commerce_app/widgets/product_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,13 +40,13 @@ class HomePage extends StatelessWidget {
                 Icon(Icons.notifications_none, size: 28),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
                 hintText: 'Search here...',
                 prefixIcon: Icon(Icons.search),
                 filled: true,
-                fillColor: const Color.fromARGB(255, 220, 220, 220),
+                fillColor: const Color.fromARGB(255, 239, 239, 239),
                 contentPadding: EdgeInsets.symmetric(vertical: 0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -53,25 +54,64 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  BannerCard(),
-                  BannerCard(),
-                  BannerCard(),
-                  BannerCard(),
+            // SizedBox(height: 5),
+            Expanded(
+              child: CustomScrollView(
+                physics: BouncingScrollPhysics(),
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          BannerCard(
+                            image: 'assets/images/banners/banner1.png',
+                          ),
+                          BannerCard(
+                            image: 'assets/images/banners/banner2.png',
+                          ),
+                          BannerCard(
+                            image: 'assets/images/banners/banner3.png',
+                          ),
+                          // BannerCard(image: ''),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Text(
+                      "Category",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 8)),
+                  SliverToBoxAdapter(child: CategoryList()),
+                  SliverToBoxAdapter(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Recent Products",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.filter_list, size: 18),
+                          label: Text("Filters"),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SliverToBoxAdapter(child: ProductList()),
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Text(
-              "Category",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 12),
-            CategoryList(),
           ],
         ),
       ),
