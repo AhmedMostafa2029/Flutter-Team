@@ -1,7 +1,8 @@
-import 'package:e_commerce_app/pages/cart_page.dart';
-import 'package:e_commerce_app/widgets/banner_card.dart';
-import 'package:e_commerce_app/widgets/category_list.dart';
-import 'package:e_commerce_app/widgets/product_list.dart';
+
+import 'package:e_commerce_app/presentation/widgets/banner_card.dart';
+import 'package:e_commerce_app/presentation/widgets/category_list.dart';
+import 'package:e_commerce_app/presentation/widgets/custom_home_app_bar.dart';
+import 'package:e_commerce_app/presentation/widgets/product_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,34 +13,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 40),
+        padding: const EdgeInsets.only(left: 18, right: 18, top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Delivery address",
-              style: TextStyle(color: Colors.grey, fontSize: 14),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Cairo City, Central Java",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                ),
-                SizedBox(width: 70),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => CartPage()),
-                    );
-                  },
-                  child: Icon(Icons.shopping_cart_outlined, size: 28),
-                ),
-                Icon(Icons.notifications_none, size: 28),
-              ],
-            ),
+            // Custom Home AppBar 
+            CustomHomeAppBar(),
+
+
             SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
