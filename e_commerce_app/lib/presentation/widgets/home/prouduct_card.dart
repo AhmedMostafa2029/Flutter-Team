@@ -29,13 +29,14 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            flex: 2,
+            flex: 3,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(product.image, fit: BoxFit.fill),
             ),
           ),
-          // const SizedBox(height: 5),
+          const SizedBox(height: 10),
+
           Expanded(
             flex: 1,
             child: Align(
@@ -46,6 +47,8 @@ class ProductCard extends StatelessWidget {
                   fontSize: 14,
                   color: Color.fromARGB(255, 115, 115, 115),
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.clip,
               ),
             ),
           ),
@@ -71,7 +74,6 @@ class ProductCard extends StatelessWidget {
               onPressed: () {
                 Provider.of<CartModel>(context, listen: false).addProduct({
                   'Product': product,
-                  'quantity': 1,
                 });
                 showSnackBarSuccess(context, '${product.title} added to cart');
               },

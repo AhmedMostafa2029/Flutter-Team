@@ -1,9 +1,8 @@
-import 'package:e_commerce_app/consts/consts.dart';
 import 'package:e_commerce_app/data/models/cart_model.dart';
-import 'package:e_commerce_app/data/models/checkout_model.dart';
 import 'package:e_commerce_app/data/models/locations_model.dart';
-import 'package:e_commerce_app/presentation/widgets/location_bottom_sheet.dart';
-import 'package:e_commerce_app/presentation/widgets/number_of_product_with_add_or_remove_buttoms.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/cart_check_box_item.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/location_bottom_sheet.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/number_of_product_with_add_or_remove_buttoms.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +56,6 @@ class CartBodyInfo extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final productData = carModel.products[index];
                         final product = productData['Product'];
-                        final isSelected = productData['selected'] ?? false;
 
                         return Container(
                           height: 100,
@@ -67,54 +65,7 @@ class CartBodyInfo extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              Checkbox(
-                                side: MaterialStateBorderSide.resolveWith(
-                                  (states) =>
-                                      const BorderSide(color: Colors.grey),
-                                ),
-                                focusColor: const Color(0xFF67C4A7),
-                                fillColor: MaterialStateProperty.resolveWith((
-                                  states,
-                                ) {
-                                  if (states.contains(MaterialState.selected)) {
-                                    return const Color(0xFF67C4A7);
-                                  }
-                                  return Colors.white;
-                                }),
-                                value: isSelected,
-                                onChanged: (value) {
-                                  carModel.toggleProductSelection(
-                                    index,
-                                    value!,
-                                  );
-
-                                  final checkoutModel =
-                                      Provider.of<CheckoutModel>(
-                                        context,
-                                        listen: false,
-                                      );
-
-                                  if (value) {
-                                    checkoutModel.addProduct(
-                                      product,
-                                      productData['quantity'],
-                                    );
-                                    showSnackBarSuccess(
-                                      context,
-                                      '${product.title} added to cart',
-                                    );
-                                  } else {
-                                    checkoutModel.removeProductByModel(
-                                      product,
-                                    ); 
-                                    showSnackBarSuccess(
-                                      context,
-                                      '${product.title} removed from cart',
-                                    );
-                                  }
-                                },
-                              ),
-
+                              CartCheckBoxItem(index: index),
                               Container(
                                 width: 90,
                                 height: 100,

@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/data/models/category_model.dart';
-import 'package:e_commerce_app/presentation/widgets/category_item.dart';
+import 'package:e_commerce_app/presentation/widgets/home/category_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {

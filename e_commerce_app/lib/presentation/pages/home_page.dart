@@ -1,8 +1,8 @@
-
 import 'package:e_commerce_app/presentation/widgets/banner_card.dart';
-import 'package:e_commerce_app/presentation/widgets/category_list.dart';
-import 'package:e_commerce_app/presentation/widgets/custom_home_app_bar.dart';
-import 'package:e_commerce_app/presentation/widgets/product_list.dart';
+import 'package:e_commerce_app/presentation/widgets/home/category_list.dart';
+import 'package:e_commerce_app/presentation/widgets/home/custom_home_app_bar.dart';
+import 'package:e_commerce_app/presentation/widgets/home/home_search_widget.dart';
+import 'package:e_commerce_app/presentation/widgets/home/product_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,21 +20,8 @@ class HomePage extends StatelessWidget {
             // Custom Home AppBar 
             CustomHomeAppBar(),
 
-
             SizedBox(height: 10),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Search here...',
-                prefixIcon: Icon(Icons.search),
-                filled: true,
-                fillColor: const Color.fromARGB(255, 239, 239, 239),
-                contentPadding: EdgeInsets.symmetric(vertical: 0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
+            SearchHomeWidget(),
             // SizedBox(height: 5),
             Expanded(
               child: CustomScrollView(

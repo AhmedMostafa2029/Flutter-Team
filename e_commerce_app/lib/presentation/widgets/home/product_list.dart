@@ -1,8 +1,7 @@
 
 import 'package:e_commerce_app/data/models/product_model.dart';
 import 'package:e_commerce_app/data/repositerse/get_all_category.dart';
-
-import 'package:e_commerce_app/presentation/widgets/prouduct_card.dart';
+import 'package:e_commerce_app/presentation/widgets/home/prouduct_card.dart';
 import 'package:flutter/material.dart';
 
 class ProductList extends StatefulWidget {
@@ -46,11 +45,11 @@ class _ProductListState extends State<ProductList> {
       itemCount: products.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 3 / 4,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
+        crossAxisSpacing: 9,
+          mainAxisSpacing: 8,
+        mainAxisExtent: 217,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       itemBuilder: (context, index) {
         return ProductCard(product: products[index]);
       },

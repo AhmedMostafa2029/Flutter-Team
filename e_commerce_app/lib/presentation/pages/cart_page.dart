@@ -1,9 +1,8 @@
 
-import 'package:e_commerce_app/presentation/widgets/cart_body_info.dart';
-import 'package:e_commerce_app/presentation/widgets/cart_icon_with_count.dart';
-import 'package:e_commerce_app/presentation/widgets/cart_total_price_and_checkout_buttom.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/cart_body_info.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/cart_icon_with_count_no_navigate.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/cart_total_price_and_checkout_buttom.dart';
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -15,14 +14,13 @@ class CartPage extends StatelessWidget {
 
       //=========================== App Bar ================================
       appBar: AppBar(
-        title: const Text('Cart'),
-        centerTitle: true,
+        title: const Text('Your Cart'),
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CartIconWithCount(),
+            child: CartIconWithCountNoNavigate(),
           ),
         ],
       ),

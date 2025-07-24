@@ -1,8 +1,9 @@
 
 import 'package:e_commerce_app/data/models/locations_model.dart';
-import 'package:e_commerce_app/presentation/widgets/cart_icon_with_count.dart';
-import 'package:e_commerce_app/presentation/widgets/location_bottom_sheet.dart';
+import 'package:e_commerce_app/presentation/widgets/home/cart_icon_with_count.dart';
+import 'package:e_commerce_app/presentation/widgets/cart/location_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:provider/provider.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -30,8 +31,9 @@ class CustomHomeAppBar extends StatelessWidget {
                     );
                   },
                 ),
+                SizedBox(width: 5),
                 GestureDetector(
-                  child: Icon(Icons.arrow_drop_down, size: 28),
+                  child: Icon(IconsaxPlusLinear.arrow_down, size: 20),
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
@@ -46,7 +48,7 @@ class CustomHomeAppBar extends StatelessWidget {
             Row(
               children: const [
                 CartIconWithCount(),
-                Icon(Icons.notifications_none, size: 28),
+                Icon(IconsaxPlusLinear.notification, size: 28),
               ],
             ),
           ],
