@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/models/category_model.dart';
-import 'package:e_commerce_app/widgets/category_item.dart';
+import 'package:e_commerce_app/data/models/category_model.dart';
+import 'package:e_commerce_app/presentation/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
@@ -24,16 +24,20 @@ class CategoryList extends StatelessWidget {
     // CategoryModel(imageicon: 'assets/images/categorys/img5.png', title: "Bag"),
     CategoryModel(imageicon: 'assets/images/categorys/img5.png', title: "All"),
   ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 65,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          return CategoryItem(category: categories[index]);
-        },
+      height: 75,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(child: CategoryItem(category: categories[0])),
+          Expanded(child: CategoryItem(category: categories[1])),
+          Expanded(child: CategoryItem(category: categories[2])),
+          Expanded(child: CategoryItem(category: categories[3])),
+          Expanded(child: CategoryItem(category: categories[4])),
+        ],
       ),
     );
   }
