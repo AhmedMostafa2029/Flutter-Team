@@ -13,7 +13,7 @@ class CheckoutModel extends ChangeNotifier {
 
     products.add({'Product': product, 'quantity': quantity});
 
-    totalPrice += product.price;
+    totalPrice += product.price * quantity;
     notifyListeners();
   }
 
@@ -22,33 +22,44 @@ class CheckoutModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void increaseQuantity(int index) {
-    productsCount++;
-    products[index]['quantity']++;
-    totalPrice += products[index]['Product'].price;
-    notifyListeners();
-  }
-
-  void decreaseQuantity(int index) {
-    if (products[index]['quantity'] > 1) {
-      productsCount--;
-      products[index]['quantity']--;
-      totalPrice -= products[index]['Product'].price;
-      notifyListeners();
+  void increaseQuantity(ProductModel product) {
+    for (var i = 0; i < length; i++) {
+      if (products[i]['Product'] == product) {
+        products[i]['quantity']++;
+        productsCount++;
+        totalPrice += product.price;
+        notifyListeners();
+        return;
+      }
     }
   }
 
-  void removeProductByModel(ProductModel product) {
-    final index = products.indexWhere(
-      (item) => item['Product'].id == product.id,
-    );
+  void decreaseQuantity(ProductModel product) {
+    for (var i = 0; i < length; i++) {
+      if (products[i]['Product'].id == product.id &&
+          products[i]['quantity'] > 1) {
+        products[i]['quantity']--;
+        totalPrice -= product.price;
+        productsCount--;
+        notifyListeners();
+        return;
+      }
+    }
+    if (productsCount == 0) {
+      totalPrice = 0;
+    }
+    notifyListeners();
+  }
 
-    if (index != -1) {
-      totalPrice -=
-          products[index]['Product'].price * products[index]['quantity'];
-      productsCount = productsCount - products[index]['quantity'];
-      products.removeAt(index);
-      notifyListeners();
+  void removeProductByModel(ProductModel product) {
+    for (var i = 0; i < length; i++) {
+      if (products[i]['Product'] == product) {
+        totalPrice -= products[i]['Product'].price * products[i]['quantity'];
+        productsCount -= products[i]['quantity'];
+        products.removeAt(i);
+        notifyListeners();
+        return;
+      }
     }
   }
 }

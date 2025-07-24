@@ -1,21 +1,22 @@
-
 import 'package:flutter/material.dart';
 
 class CartModel extends ChangeNotifier {
   List<Map<String, dynamic>> products = [];
   double totalPrice = 0;
-  int productsCount = 0;
+  num productsCount = 0;
   int get length => products.length;
-  int get productCount => productsCount;
+  num get productCount => productsCount;
 
   void addProduct(Map<String, dynamic> product) {
-    productsCount++;
-    if (products.contains(product['Product'])) {
-      
-      increaseQuantity(products.indexOf(product));
-    } else {
-      products.add({'Product': product['Product'], 'quantity': 1});
+    
+    for (var i = 0; i < products.length; i++) {
+      if (products[i]['Product'] == product['Product']) {
+        increaseQuantity(i);
+        return;
+      }
     }
+    productsCount++;
+    products.add({'Product': product['Product'], 'quantity': 1});
     totalPrice += product['Product'].price;
     notifyListeners();
   }
@@ -42,7 +43,7 @@ class CartModel extends ChangeNotifier {
   }
 
   void removeProduct(int index) {
-    productsCount--;
+    productsCount = productsCount - products[index]['quantity'];
     totalPrice -=
         products[index]['Product'].price * products[index]['quantity'];
     products.removeAt(index);
