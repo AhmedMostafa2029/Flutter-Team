@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/data/models/cart_model.dart';
 import 'package:e_commerce_app/data/models/checkout_model.dart';
+import 'package:e_commerce_app/data/models/favorite_provider.dart';
 import 'package:e_commerce_app/data/models/locations_model.dart';
 import 'package:e_commerce_app/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => CartModel()),
         ChangeNotifierProvider(create: (context) => LocationsModel()),
         ChangeNotifierProvider(create: (context) => CheckoutModel()),
+        ChangeNotifierProvider(create: (context) => FavoriteProvider()),
       ],
       child: const E_CommerceApp(),
     ),

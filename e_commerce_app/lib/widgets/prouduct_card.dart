@@ -1,9 +1,7 @@
-import 'package:e_commerce_app/consts/consts.dart';
 import 'package:e_commerce_app/data/models/product_model.dart';
 import 'package:e_commerce_app/presentation/pages/product_details.dart';
 import 'package:e_commerce_app/data/models/cart_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -29,7 +27,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 0),

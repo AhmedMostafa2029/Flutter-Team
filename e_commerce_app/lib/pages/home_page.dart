@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/presentation/widgets/home/pages/account_page.dart';
-import 'package:e_commerce_app/presentation/widgets/home/pages/history_page.dart';
-import 'package:e_commerce_app/presentation/widgets/home/pages/home_content.dart';
-import 'package:e_commerce_app/presentation/widgets/home/pages/wishlist_page.dart';
+import 'package:e_commerce_app/presentation/widgets/home/BottomNavigationBar/account_page.dart';
+import 'package:e_commerce_app/presentation/widgets/home/BottomNavigationBar/history_page.dart';
+import 'package:e_commerce_app/presentation/widgets/home/BottomNavigationBar/home_content.dart';
+import 'package:e_commerce_app/presentation/widgets/home/BottomNavigationBar/wishlist_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
