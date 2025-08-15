@@ -8,7 +8,6 @@ class CartModel extends ChangeNotifier {
   num get productCount => productsCount;
 
   void addProduct(Map<String, dynamic> product) {
-    
     for (var i = 0; i < products.length; i++) {
       if (products[i]['Product'] == product['Product']) {
         increaseQuantity(i);
