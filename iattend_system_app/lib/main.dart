@@ -11,7 +11,7 @@ import 'views/auth/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // تهيئة الأدوات المساعدة
   await CacheHelper.init();
   DioHelper.init();
@@ -24,12 +24,12 @@ class VisionLogApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return MultiProvider(
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => DoctorProvider()), 
-        ChangeNotifierProvider(create: (_) => StudentProvider()), 
-        ChangeNotifierProvider(create: (_) => AdminProvider()), 
+        ChangeNotifierProvider(create: (_) => DoctorProvider()),
+        ChangeNotifierProvider(create: (_) => StudentProvider()),
+        ChangeNotifierProvider(create: (_) => AdminProvider()),
       ],
       child: MaterialApp(
         title: 'VisionLog',

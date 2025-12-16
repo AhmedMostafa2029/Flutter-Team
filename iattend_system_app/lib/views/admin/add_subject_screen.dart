@@ -7,7 +7,7 @@ class AddSubjectScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final nameCtrl = TextEditingController();
   final codeCtrl = TextEditingController();
-  final docEmailCtrl = TextEditingController(); // إيميل الدكتور للربط
+  final docEmailCtrl = TextEditingController();
 
   AddSubjectScreen({super.key});
 
@@ -22,14 +22,13 @@ class AddSubjectScreen extends StatelessWidget {
             child: Form(
               key: _formKey,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.menu_book, size: 80, color: Colors.teal),
+                  const Icon(Icons.book, size: 80, color: Colors.teal),
                   const SizedBox(height: 20),
 
-                  CustomTextField(controller: nameCtrl, label: "اسم المادة (Machine Learning)", icon: Icons.book),
-                  CustomTextField(controller: codeCtrl, label: "كود المادة (CS400)", icon: Icons.qr_code),
-                  CustomTextField(controller: docEmailCtrl, label: "إيميل الدكتور المسؤول", icon: Icons.person_pin),
+                  CustomTextField(controller: nameCtrl, label: "اسم المادة (Subject Name)", icon: Icons.menu_book),
+                  CustomTextField(controller: codeCtrl, label: "كود المادة (Subject Code)", icon: Icons.qr_code),
+                  CustomTextField(controller: docEmailCtrl, label: "إيميل الدكتور (Doctor Email)", icon: Icons.person),
                   
                   const SizedBox(height: 30),
                   

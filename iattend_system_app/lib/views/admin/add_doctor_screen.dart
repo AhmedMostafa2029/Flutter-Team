@@ -5,10 +5,8 @@ import '../widgets/custom_text_field.dart';
 
 class AddDoctorScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  
-  // Controllers
   final nameCtrl = TextEditingController();
-  final emailCtrl = TextEditingController(); // Username
+  final emailCtrl = TextEditingController();
   final passCtrl = TextEditingController();
   final phoneCtrl = TextEditingController();
   final deptCtrl = TextEditingController();
@@ -27,14 +25,14 @@ class AddDoctorScreen extends StatelessWidget {
               key: _formKey,
               child: Column(
                 children: [
-                  const Icon(Icons.person_add_alt_1, size: 80, color: Colors.orange),
+                  const Icon(Icons.medical_services, size: 80, color: Colors.orange),
                   const SizedBox(height: 20),
                   
-                  CustomTextField(controller: nameCtrl, label: "اسم الدكتور", icon: Icons.person),
-                  CustomTextField(controller: emailCtrl, label: "الإيميل (Username)", icon: Icons.email),
+                  CustomTextField(controller: nameCtrl, label: "الاسم كامل (Name)", icon: Icons.person),
+                  CustomTextField(controller: emailCtrl, label: "الإيميل (Email)", icon: Icons.email),
                   CustomTextField(controller: passCtrl, label: "كلمة المرور", icon: Icons.lock, isPassword: true),
                   CustomTextField(controller: phoneCtrl, label: "رقم الهاتف", icon: Icons.phone, type: TextInputType.phone),
-                  CustomTextField(controller: deptCtrl, label: "القسم (CS/IS)", icon: Icons.apartment),
+                  CustomTextField(controller: deptCtrl, label: "القسم (Department)", icon: Icons.apartment),
                   
                   const SizedBox(height: 30),
                   
